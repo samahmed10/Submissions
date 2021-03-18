@@ -11,12 +11,8 @@ bool makeSum(int targetSum,int coins[],int n) {
     return false;
 }
 int main() {
-    int n,targetSum;
-    int coins[n];
-    cin>>n;
-    for(int i=0;i<n;i++)
-        cin>>coins[i];
-    cin>>targetSum;
-    cout<<makeSum(targetSum,coins,n);
+    int n=1,targetSum=1000;
+    int coins[n]= {7};
+    cout<<makeSum(targetSum,coins,n)<<endl;
     return 0;
 }
