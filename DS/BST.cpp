@@ -72,6 +72,20 @@ void inorder(Node *root) {
 	inorder(root->right);
 }
 
+void levelOrder(Node *root) {
+	queue<Node*> q;
+	q.push(root);
+	while(!q.empty()) {
+		Node* t = q.front();
+		cout<<t->data<<endl;
+		q.pop();
+		if(root->left)
+			q.push(root->left);
+		if(root->right)
+			q.push(root->right);
+	}
+}
+
 int main() {
 	Node *root = NULL;
 	root = addNode(root,50);
@@ -82,17 +96,20 @@ int main() {
 	root = addNode(root,60);
 	root = addNode(root,80);	
 	inorder(root);
-	root = deleteNode(root,20);
+	// root = deleteNode(root,20);
+	// cout<<endl;
+	// inorder(root);
+	// root = deleteNode(root,30);
+	// cout<<endl;
+	// inorder(root);
+	// root = deleteNode(root,70);
+	// cout<<endl;
+	// inorder(root);
+	// root = deleteNode(root,50);
+	// cout<<endl;
+	// inorder(root);
 	cout<<endl;
-	inorder(root);
-	root = deleteNode(root,30);
-	cout<<endl;
-	inorder(root);
-	root = deleteNode(root,70);
-	cout<<endl;
-	inorder(root);
-	root = deleteNode(root,50);
-	cout<<endl;
-	inorder(root);
+	cout<<"level order is :"<<endl;
+	levelOrder(root);
 	return 0;
 }
